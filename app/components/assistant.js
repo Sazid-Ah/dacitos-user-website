@@ -371,7 +371,7 @@ Important: Note that all responses must be concise; each answer should be from t
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY || "REMOVED_KEY"}`
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_GROQ_API_KEY}`
         },
         body: JSON.stringify({
           model: 'openai/gpt-oss-120b',
