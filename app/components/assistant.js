@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 
-const dacitosChatBot = ({ className }) => {
+const DacitosChatBot = ({ className }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -948,4 +948,4 @@ Important: Note that all responses must be concise; each answer should be from t
   );
 };
 
-export default dacitosChatBot;
+export default DacitosChatBot;
