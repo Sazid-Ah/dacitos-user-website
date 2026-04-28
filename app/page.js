@@ -60,6 +60,19 @@ export default function Home() {
 
   const services = [
     {
+      icon: TrendingUp,
+      id: 'fintech-solutions',
+      title: 'Fintech Solutions',
+      description: 'Advanced fintech solutions including AEPS, DMT, payout APIs, wallet systems, and payment gateway integrations for modern businesses.',
+      features: [
+        'AEPS Integration',
+        'DMT Services',
+        'Payout APIs',
+        'Wallet Systems',
+        'Payment Gateway'
+      ],
+    },
+    {
       icon: Globe,
       id: 'web-development',
       title: 'Web Development',
