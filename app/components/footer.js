@@ -19,6 +19,7 @@ import {
   ArrowUp
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -69,101 +70,35 @@ const Footer = () => {
   ];
 
   const gradient = {
-  from: '#085e7d',
-  via: '#076e97',
-  to: '#045f8c',
-};
+    from: '#085e7d',
+    via: '#076e97',
+    to: '#045f8c',
+  };
 
   return (
     <>
-<footer
-  className="relative text-white"
-  style={{
-    background: `linear-gradient(to bottom right, ${gradient.from}, ${gradient.via}, ${gradient.to})`
-  }}
->
+      <footer
+        className="relative text-white"
+        style={{
+          background: `linear-gradient(to bottom right, ${gradient.from}, ${gradient.via}, ${gradient.to})`
+        }}
+      >
         {/* MAIN */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
             {/* Company */}
             <div>
-             <div className="mb-4">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 900 260"
-    className="h-15 w-auto"
-  >
-    <defs>
-      <linearGradient id="dGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#00B4D8" />
-        <stop offset="100%" stopColor="#00d4a4" />
-      </linearGradient>
-
-      <linearGradient id="arrowGradFooter" x1="0%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#00B4D8" />
-        <stop offset="100%" stopColor="#00d4a4" />
-      </linearGradient>
-
-      <mask id="cutFooter">
-        <rect width="100%" height="100%" fill="white" />
-        <polygon points="40,200 180,60 200,80 60,220" fill="black" />
-      </mask>
-    </defs>
-
-    {/* Icon */}
-    <g transform="translate(20,20)">
-      <g mask="url(#cutFooter)">
-        <path
-          d="M60 20 L140 20 A90 90 0 0 1 140 220 L60 220 Z 
-             M100 60 L100 180 L140 180 A60 60 0 0 0 140 60 Z"
-          fill="url(#dGradFooter)"
-        />
-      </g>
-
-      <polygon
-        points="55,210 190,80 175,65 230,50 215,105 200,90 70,230"
-        fill="url(#arrowGradFooter)"
-      />
-
-      <polyline
-        points="20,140 80,80 140,170 200,110"
-        fill="none"
-        stroke="#00B4D8"
-        strokeWidth="5"
-        strokeLinejoin="round"
-      />
-
-      <circle cx="20" cy="140" r="8" fill="#00B4D8" />
-      <circle cx="80" cy="80" r="8" fill="#00B4D8" />
-      <circle cx="140" cy="170" r="8" fill="#00B4D8" />
-      <circle cx="200" cy="110" r="8" fill="#00B4D8" />
-    </g>
-
-    {/* Text */}
-    <text
-      x="285"
-      y="140"
-      fontSize="100"
-      fontWeight="900"
-      fill="white"
-      style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-    >
-      Dacitos
-    </text>
-
-    <text
-      x="285"
-      y="200"
-      fontSize="40"
-      fontWeight="900"
-      fill="#cbd5e1"
-      style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-    >
-      Technologies Pvt Ltd
-    </text>
-  </svg>
-</div>
+              <div className="mb-4">
+                <Image
+                  src="/dacitos-footer-logo.png"
+                  alt="Dacitos Logo"
+                  width={180}
+                  height={100}
+                  className="logo-img"
+                  priority
+                />
+              </div>
 
               <p className="text-sm text-gray-300 mb-6 leading-relaxed">
                 Empowering businesses with cutting-edge IT solutions and modern software development.

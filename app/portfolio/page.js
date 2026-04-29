@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { 
+import {
   Filter,
   ExternalLink,
   Calendar,
@@ -50,8 +50,8 @@ export default function PortfolioPage() {
     fetchProjects();
   }, []);
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   const getCategoryIcon = (category) => {
@@ -67,16 +67,16 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen py-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-green-50 py-20">
+      <section className="bg-[#003566] py-20 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Our <span className="text-blue-800">Portfolio</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Our <span className="text-[#00d4a4]">Portfolio</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Explore our successful projects and discover how we&apos;ve helped businesses across 
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              Explore our successful projects and discover how we&apos;ve helped businesses across
               various industries achieve their digital transformation goals through innovative solutions.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -109,11 +109,12 @@ export default function PortfolioPage() {
               <button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-all ${
-                  activeFilter === category
-                    ? 'bg-blue-800 text-white shadow-lg'
+                className={`px-6 py-2 rounded-full font-medium transition-all 
+                  
+                  ${activeFilter === category
+                    ? 'bg-[#003566] text-white shadow-lg'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -132,13 +133,13 @@ export default function PortfolioPage() {
               {filteredProjects.map((project, index) => {
                 const CategoryIcon = getCategoryIcon(project.category);
                 return (
-                  <div 
+                  <div
                     key={project.id ?? project.slug ?? `${project.title ?? 'project'}-${index}`}
                     className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
                     onClick={() => setSelectedProject(project)}
                   >
                     <div className="relative h-48 bg-gradient-to-br from-blue-100 to-green-100">
-                      <div className="absolute inset-0 flex items-center justify-center" style={{backgroundImage: `url(${project.image})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                      <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundImage: `url(${project.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         {/*<Image 
                           src={project.clientLogo} 
                           alt={`${project.client} Logo`}
@@ -153,14 +154,14 @@ export default function PortfolioPage() {
                       </div>
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-800 transition-colors">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-[#00B4D8] transition-colors">
                         {project.title}
                       </h3>
                       <p className="text-green-600 font-medium mb-3">{project.client}</p>
                       <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {project.technologies.slice(0, 3).map((tech, index) => (
-                          <span 
+                          <span
                             key={`${tech ?? 'tech'}-${index}`}
                             className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md"
                           >
@@ -198,20 +199,20 @@ export default function PortfolioPage() {
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="sticky top-0 z-50 bg-white border-b px-6 py-4 flex justify-between items-center">
               <h2 className="text-2xl font-bold text-gray-900">{selectedProject.title}</h2>
-              <button 
+              <button
                 onClick={() => setSelectedProject(null)}
                 className="text-gray-500 hover:text-gray-700 text-2xl"
               >
                 ×
               </button>
             </div>
-            
+
             <div className="p-6">
               {/* Project Header */}
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div>
                   <div className="relative h-64 rounded-xl mb-4">
-                    <div className="absolute inset-0 flex items-center justify-center" style={{backgroundImage: `url(${selectedProject.image})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat'}}>
+                    <div className="absolute inset-0 flex items-center justify-center" style={{ backgroundImage: `url(${selectedProject.image})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
                       {/*(() => {
                         const CategoryIcon = getCategoryIcon(selectedProject.category);
                         return <CategoryIcon className="h-20 w-20 text-blue-800" />;
@@ -230,20 +231,20 @@ export default function PortfolioPage() {
                       {selectedProject.category}
                     </span>
                     {/*<ExternalLink className="h-5 w-5 text-gray-400" />*/}
-                    <Image 
-                        src={selectedProject.clientLogo} 
-                        alt={`${selectedProject.client} Logo`}
-                        width={80}
-                        height={80}
-                        className="object-contain h-20 w-20"
-                      />
+                    <Image
+                      src={selectedProject.clientLogo}
+                      alt={`${selectedProject.client} Logo`}
+                      width={80}
+                      height={80}
+                      className="object-contain h-20 w-20"
+                    />
                   </div>
                 </div>
-                
+
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Project Overview</h3>
                   <p className="text-gray-600 mb-6 text-justify">{selectedProject.description}</p>
-                  
+
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div>
                       <div className="text-sm text-gray-500 mb-1">Client</div>
@@ -267,7 +268,7 @@ export default function PortfolioPage() {
                     <div className="text-sm text-gray-500 mb-2">Technologies Used</div>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech, index) => (
-                        <span 
+                        <span
                           key={`${tech ?? 'tech'}-${index}`}
                           className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-md"
                         >
@@ -329,11 +330,11 @@ export default function PortfolioPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Portfolio Impact</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our projects have generated measurable results and lasting impact for our clients 
+              Our projects have generated measurable results and lasting impact for our clients
               across various industries and business objectives.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg text-center">
               <TrendingUp className="h-12 w-12 text-green-600 mx-auto mb-4" />
@@ -365,11 +366,11 @@ export default function PortfolioPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our diverse portfolio spans multiple industries, showcasing our ability to adapt 
+              Our diverse portfolio spans multiple industries, showcasing our ability to adapt
               and deliver specialized solutions for various business sectors.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               'Healthcare & Life Sciences',
@@ -396,11 +397,11 @@ export default function PortfolioPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Development Process</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Every successful project follows our proven methodology that ensures quality, 
+              Every successful project follows our proven methodology that ensures quality,
               transparency, and timely delivery.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { step: "01", title: "Discovery", description: "Understanding your business needs and project requirements" },
@@ -421,23 +422,37 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-800 to-green-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+      <section className="py-108 md:py-36 bg-gradient-to-r from-[#003566] to-[#00B4D8] text-center text-white">
+        <div className="max-w-4xl mx-auto px-6">
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Start Your Next Project?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Let&apos;s discuss how we can bring your vision to life with our proven expertise
-            and innovative approach to software development.
+
+          <p className="text-gray-200 mb-8">
+            Let’s build something powerful together. Our team is ready to turn your ideas into scalable digital solutions.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" onClick={ () => { window.location.href = '/contact'; }}>
-              Start Your Project
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+
+            {/* Primary Button */}
+            <button
+              onClick={() => (window.location.href = '/contact')}
+              className="bg-white text-[#003566] px-8 py-3 rounded-lg font-semibold hover:scale-105 transition"
+            >
+              Get Started
             </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-800 transition-colors" onClick={ () => { window.location.href = '/case-studies'; }}>
-              View Case Studies
+
+            {/* Secondary Button */}
+            <button
+              onClick={() => (window.location.href = '/portfolio')}
+              className="border border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#003566] transition"
+            >
+              View Work
             </button>
+
           </div>
+
         </div>
       </section>
     </div>
