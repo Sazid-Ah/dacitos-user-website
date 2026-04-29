@@ -82,13 +82,13 @@ export default function ContactPage() {
   ];
 
   const budgetRanges = [
-    'Under $10,000',
-    '$10,000 - $25,000',
-    '$25,000 - $50,000',
-    '$50,000 - $100,000',
-    '$100,000+',
-    'Let\'s discuss'
-  ];
+  '₹5,000 - ₹25,000',
+  '₹25,000 - ₹50,000',
+  '₹50,000 - ₹1,00,000',
+  '₹1,00,000 - ₹5,00,000',
+  '₹5,00,000+',
+  "Let's discuss"
+];
 
   const timelines = [
     'ASAP (Rush Project)',
